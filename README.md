@@ -1,64 +1,32 @@
 # CAD Operation Sequence
 
-predict sequence of operations from CAD file
+Predict sequence of operations from given .binvox files.
 
-## 3D data available
+# Data
 
-'data/three_ops/expressions.txt'.
+- Number of data points : 255
+- Input data shape : (255, 256, 256, 256)
+- Labels Shape : (255, 17)
 
-The 3D data is available in the following format :
+# Missing Files
 
-- sp(x,y,z,r), cu(x,y,z,r) and cy(x,y,z,r,h). These are the three primitives present in the dataset.
-- Here, (x,y,z) are the center (location) of the shapes in the 3D space.
-- r denotes the radius for sphere and cylinder whereas r specifies size for the cube.
-- h denotes the height of the cylinder.
+Files that doesn't exists: 
+ 1. 1160117_10.binvox
+ 2. 1160669_20.binvox
+ 3. 1160908_20.binvox (.obj file present)
+ 4. 1152491_10.binvox (.obj file present)
+ 5. 1162720_10.binvox
 
-## Dependency
+# Visualization of a Data Point
 
-- Python > 3.5
+![](images/datapoint.png)
 
-- Create conda env using environment.yml file
-```bash
-conda env create -f environment.yml -n CAD
-conda activate CAD
-```
+# Data Set
 
-## Data
+- Download the Vorplan [dataset](https://seafile.rlp.net/d/eb70457c42ee4eefa775/) and unzip in ./data_vorplan folder. The dataset is in the form of .binvox files.
 
-Before training on the data, download the dataset and generate voxel files for training.
-
-- Download the CAD expressions [dataset](https://seafile.rlp.net/d/6f37b5ebaf4e492f8500/) for different program length and unzip in the root. The dataset is in the form of program expressions.
-- How to create **Voxels** file from program expressions?
-
-For generating voxel files for one_op
-```python
-python voxel_represenation_from_expressions.py --voxel_expression_path ./data/one_op/expressions_with_labels.csv --voxel_data_path ./data/one_op/voxel_representation
-```
-
-For generating voxel files for two_ops
-```python
-python voxel_represenation_from_expressions.py --voxel_expression_path ./data/two_ops/expressions_with_labels.csv --voxel_data_path ./data/two_ops/voxel_representation
-```
-
-
-
-## Supervised Learning
-
-- To train, following flags can be set while running the training file:
-    - forward_approach : Choose the forward method for DecoderRNN. simple/teacher_forcer. (Mandatory argument)
-    - --model_path : Path for saving the trained models.
-    - --voxels_data_path : Path for .vox files used for training.
-    - --voxels_label_path : Path for labels for each voxel file.
-    - --embed_size : Dimension for word embeddings for decoder.
-    - --hidden_size : Dimension for lstm hidden states.
-    - --epochs : Number of epochs for the training.
-    - --batch_size : Chossing the batch size for training.
-    - --learning_rate : Learning rate for training.
-    - --save_step : Choosing the number of steps after which trained model will be saved as a checkpoint.
-    - --proportion : Choosing the proportion of dataset required for the model to be trained on.
-
-By default the forward approach is set to 'teacher forcer'
+# Train the network
 
 ```python
-python training.py
+python training_transformer.py
 ```

@@ -1,0 +1,60 @@
+{
+    
+    "embeddings": {
+        "size": 256
+    },
+
+    "image_specs": {
+        "img_feature_channels": 256,
+        "image_size": 256
+    },
+
+    "vocab_size": 18,
+
+    "PAD_token": "<pad>",
+    "PAD_idx": 17,
+
+    "START_idx": 0,
+    "START_token": "<start>",
+
+    "END_idx": 1,
+    "END_token": "<end>",
+
+    "max_len": 17,
+
+    "use_gpu": true,
+
+    "batch_size": {
+        "train": 2,
+        "eval": 2
+    },
+
+    "model_configuration": {
+        "decoder_layers": 6,
+        "d_model": 512,
+        "ff_dim": 1024,
+        "attention_heads": 16,
+        "dropout": 0.5
+    },
+
+    "train_config": {
+        "num_of_epochs": 100,
+        "warmup_steps": 2811,
+        "l2_penalty": 0.5,
+        "learning_rate": 0.000008,
+        "gradient_clipping": 2.0,
+        "eval_period": 3
+    },
+
+    "bleu_weights": {
+        "bleu-1": [1.0],
+        "bleu-2": [0.5, 0.5],
+        "bleu-3": [0.333, 0.333, 0.333],
+        "bleu-4": [0.25, 0.25, 0.25, 0.25]
+    },
+
+    "checkpoint": {
+        "load": false,
+        "checkpoint_path": "."
+    }
+}
