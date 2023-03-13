@@ -23,7 +23,7 @@ Files that doesn't exists:
 
 # Data Set
 
-- Download the Vorplan [dataset](https://seafile.rlp.net/d/eb70457c42ee4eefa775/) and unzip in ./data_vorplan folder. The dataset is in the form of .binvox files.
+- Download the Vorplan dataset and unzip in ./data_vorplan folder. The dataset should be in the form of .binvox files.
 
 # Train the network
 
