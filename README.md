@@ -2,11 +2,7 @@
 
 predict sequence of operations from CAD file
 
-## 3D data available
-
-'data/three_ops/expressions.txt'.
-
-The 3D data is available in the following format :
+## Data available should be in the following format
 
 - sp(x,y,z,r), cu(x,y,z,r) and cy(x,y,z,r,h). These are the three primitives present in the dataset.
 - Here, (x,y,z) are the center (location) of the shapes in the 3D space.
@@ -27,7 +23,7 @@ conda activate CAD
 
 Before training on the data, download the dataset and generate voxel files for training.
 
-- Download the CAD expressions [dataset](https://seafile.rlp.net/d/6f37b5ebaf4e492f8500/) for different program length and unzip in the root. The dataset is in the form of program expressions.
+- Download the CAD expressions for different program length and unzip in the root. The dataset is in the form of program expressions.
 - How to create **Voxels** file from program expressions?
 
 For generating voxel files for one_op
