@@ -23,6 +23,7 @@ conda activate CAD
 
 Before training on the data, download the dataset and generate voxel files for training.
 
+- Create relevant folders.
 - Download the CAD expressions for different program length and unzip in the root. The dataset is in the form of program expressions.
 - How to create **Voxels** file from program expressions?
 
